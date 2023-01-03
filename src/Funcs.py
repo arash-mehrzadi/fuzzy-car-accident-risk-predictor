@@ -61,9 +61,9 @@ class fuzzy_inference:
 
         for i in np.arange(0.0, 1.001, step):
             self.speed_range_dt.append(i)
-            self.Ffa.append((math.cos(3*i)) if (math.cos(3*i)) >= 0 else 0)
-            self.Fmd.append((math.sin(5*i)) if (math.sin(5*i)) >= 0 else 0)
-            self.Fc.append(((i-1.2)**3)+1 if ((i-1.2)**3)+1 >= 0 else 0)
+            self.Ffa.append((math.cos((3*i)-3)) if (math.cos((3*i)-3)) >= 0 else 0)
+            self.Fmd.append((math.sin(5*i-1.2)) if (math.sin(5*i-1.2)) >= 0 else 0)
+            self.Fc.append(-((2*i-0.1)**3)+1 if -((2*i-0.1)**3)+1 >= 0 else 0)
         plt.plot(self.speed_range_dt, self.Ffa, 'k--')
         plt.plot(self.speed_range_dt, self.Fmd, 'k--')
         plt.plot(self.speed_range_dt, self.Fc, 'k--')
